@@ -1,18 +1,28 @@
 {
   "name": "b3m",
-  "version": "1.0.0",
-  "main": "lib/index.js",
-  "repository": "git@github.com:entwicklerstube/b3m.git",
+  "version": "1.1.0",
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:entwicklerstube/b3m.git"
+  },
   "author": "michaelzoidl <github@michaelzoidl.com>",
+  "description": "Easy af BEM formatter which uses the two-dashes-style",
+  "keywords": ["bem", "classname", "classname formatter", "two-dashes-style", "b3m", "BEM formatter"],
+  "homepage": "https://github.com/entwicklerstube/b3m",
   "license": "MIT",
   "files": [
-    "lib/index.js"
+    "build/index.js"
   ],
   "scripts": {
-    "test": "ava --verbose"
+    "test": "ava --verbose",
+    "build": "babel index.js -d build --presets es2015",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "ava": "^0.17.0",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
     "mocha": "^3.2.0"
   }
 }
