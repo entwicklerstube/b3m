@@ -12,7 +12,7 @@ $ npm install b3m --save-dev
 
 **yarn**
 ```
-$ yarn add b3m --save-dev
+$ yarn add b3m --dev
 ```
 
 ## Usage
@@ -23,9 +23,7 @@ import b3m from 'b3m'
 
 const cn = b3m('button')
 
-cn()
-// button
-
+cn() // button
 cn('element') // button__element
 cn('big', 'blue') // button__big button__blue
 cn(['action', 'disabled']) // button--action button--disabled
