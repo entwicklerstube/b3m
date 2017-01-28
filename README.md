@@ -34,3 +34,28 @@ cn({hidden: true}) // button--hidden
 cn({hasIcon: true}) // button--has-icon
 cn({status: 'hasIcon'}) // button--status-has-icon
 ```
+
+
+## Example
+**React**
+```
+import React from 'react'
+import b3m from 'b3m'
+
+const cn = b3m('element')
+
+export default ({buttonStatus = 'visible', iconModifiers = ['big-icon']}) => (
+  <div className={cn()}>
+    <button className={cn('button', { status: buttonStatus, blue: true, hover: false })}></button>
+    <div className={cn('icon', iconModifiers)}></div>
+  </div>  
+)
+
+// rendered:
+
+<div class="element">
+  <button class="element__button element--status-visible element--blue"></button>
+  <div class="element__icon element--big-icon"></div>
+</div>  
+
+```

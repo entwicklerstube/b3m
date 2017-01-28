@@ -16,15 +16,21 @@ const handleModifiers = (block, val) => {
 
   if(is(val, 'object')) {
     return Object.keys(val).map(key => {
-      return typeof val[key] === 'boolean' ? !!val[key] ? `${block}--${dashify(key)}` : block : `${block}--${key}-${dashify(val[key])}`
+      if(is(val[key], 'boolean')) {
+        return !!val[key] ? `${block}--${dashify(key)}` : '-1'
+      } else {
+        return `${block}--${key}-${dashify(val[key])}`
+      }
     })
   }
 
   return val
 }
 
-module.exports = block => (...args) => args
-  .filter(removeNotSupportedTypes)
-  .map(handleBlocks.bind(null, block))
-  .map(handleModifiers.bind(null, block))
-  .join(' ') || block
+module.exports = block => (...args) => (args
+    .filter(removeNotSupportedTypes)
+    .map(handleBlocks.bind(null, block))
+    .map(handleModifiers.bind(null, block))
+    .join(' ')
+    .replace(',', ' ') || block
+  ).replace('-1','').trim()

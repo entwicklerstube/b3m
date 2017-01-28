@@ -28,7 +28,8 @@ test('Returns passed object into modifier if key is truth', t => {
 
 test('Returns passed object without key if prop is false', t => {
   const cn = b3m('button')
-  t.is(cn({clickable: false}), 'button')
+  t.is(cn({clickable: false}), '')
+  t.is(cn({visible: true, clickable: false}), 'button--visible')
 })
 
 test('Returns passed object without key if prop is false', t => {
@@ -45,4 +46,9 @@ test('Returns passed object and used key and prop of object and converts the cam
   const cn = b3m('button')
   t.is(cn({isHidden: true}), 'button--is-hidden')
   t.is(cn({status: 'isHidden'}), 'button--status-is-hidden')
+})
+
+test('Returns multiple object entries splitted with whitespaces', t => {
+  const cn = b3m('button')
+  t.is(cn({foo: 'bar', hello: 'world'}), 'button--foo-bar button--hello-world')
 })
