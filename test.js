@@ -30,6 +30,7 @@ test('Returns passed object without key if prop is false', t => {
   const cn = b3m('button')
   t.is(cn({clickable: false}), '')
   t.is(cn({visible: true, clickable: false}), 'button--visible')
+  t.is(cn({visible: true, clickable: true, hoverable: true}), 'button--visible button--clickable button--hoverable')
 })
 
 test('Returns passed object without key if prop is false', t => {
