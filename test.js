@@ -47,6 +47,7 @@ test('Returns passed object and used key and prop of object and converts the cam
   const cn = b3m('button')
   t.is(cn({isHidden: true}), 'button--is-hidden')
   t.is(cn({status: 'isHidden'}), 'button--status-is-hidden')
+  t.is(cn({isHidden: 'maybe'}), 'button--is-hidden-maybe')
 })
 
 test('Returns multiple object entries splitted with whitespaces', t => {
