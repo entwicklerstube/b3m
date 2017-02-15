@@ -33,6 +33,7 @@ cn({is: 'clickable'}) // button--is-clickable
 cn({hidden: true}) // button--hidden
 cn({hasIcon: true}) // button--has-icon
 cn({status: 'hasIcon'}) // button--status-has-icon
+cn({iconType: 'emoji'}) // button--icon-type-emoji
 ```
 
 
