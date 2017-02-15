@@ -19,7 +19,7 @@ const handleModifiers = (block, val) => {
       if(is(val[key], 'boolean')) {
         return !!val[key] ? `${block}--${dashify(key)}` : '-1'
       } else {
-        return `${block}--${key}-${dashify(val[key])}`
+        return `${block}--${dashify(key)}-${dashify(val[key])}`
       }
     })
   }
