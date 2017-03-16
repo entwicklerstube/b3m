@@ -3,6 +3,8 @@ Easy af BEM formatter which uses the [two-dashes-style](https://en.bem.info/meth
 
 [![Build Status](https://travis-ci.org/entwicklerstube/b3m.svg?branch=master)](https://travis-ci.org/entwicklerstube/b3m)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![https://github.com/entwicklerstube/b3m](https://img.shields.io/npm/dm/b3m.svg)](https://www.npmjs.com/package/b3m)
+
 
 ## Install
 **npm**
