@@ -33,9 +33,14 @@ test('Returns passed object without key if prop is false', t => {
   t.is(cn({visible: true, clickable: true, hoverable: true}), 'button--visible button--clickable button--hoverable')
 })
 
-test('Returns passed object without key if prop is false', t => {
+test('Returns passed object without key if prop is true', t => {
   const cn = b3m('button')
   t.is(cn({clickable: true}), 'button--clickable')
+})
+
+test('Returns passed object without key if multiple props are false except one', t => {
+  const cn = b3m('button')
+  t.is(cn({this: false, is: false, a: false, test: false, pony: true}), 'button--pony')
 })
 
 test('Returns passed object and used key and prop of object since they`re not boolean', t => {

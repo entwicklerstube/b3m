@@ -33,4 +33,4 @@ module.exports = block => (...args) => (args
     .map(handleModifiers.bind(null, block))
     .join(' ')
     .replace(/,/g, ' ') || block
-  ).replace('-1','').trim()
+  ).replace(/-1/g,'').trim()
