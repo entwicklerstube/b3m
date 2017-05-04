@@ -59,3 +59,18 @@ test('Returns multiple object entries splitted with whitespaces', t => {
   const cn = b3m('button')
   t.is(cn({foo: 'bar', hello: 'world'}), 'button--foo-bar button--hello-world')
 })
+
+test('Returns nothing if empty array is passed', t => {
+  const cn = b3m('button')
+  t.is(cn([]), '')
+})
+
+test('Returns nothing if empty object is passed', t => {
+  const cn = b3m('button')
+  t.is(cn({}), '')
+})
+
+test('Returns nothing if empty string is passed', t => {
+  const cn = b3m('button')
+  t.is(cn(''), '')
+})

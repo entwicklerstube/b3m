@@ -1,27 +1,33 @@
 const is = (val, type) => {
   const objectType = Object.prototype.toString.call(val)
-  return !!objectType.slice(8,(objectType.length-1)).match(new RegExp(type, 'gi'))
+  return !!objectType.slice(8,(objectType.length - 1)).match(new RegExp(type, 'gi'))
 }
 
 const dashify = str => str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 
 const removeNotSupportedTypes = val => is(val, 'array|string|object')
 
-const handleBlocks = (block, val) => is(val, 'string') ? `${block}__${val}` : val
+const handleBlocks = (block, val) => is(val, 'string') && val.length > 0 ? `${block}__${val}` : val
 
 const handleModifiers = (block, val) => {
   if(is(val, 'array')) {
-    return val.map(a => `${block}--${a}`)
+    return val.length === 0 ?  '-1' : val.map(a => `${block}--${a}`)
   }
 
   if(is(val, 'object')) {
-    return Object.keys(val).map(key => {
+    const keys = Object.keys(val)
+
+    return keys.length === 0 ? '-1' : Object.keys(val).map(key => {
       if(is(val[key], 'boolean')) {
         return !!val[key] ? `${block}--${dashify(key)}` : '-1'
       } else {
         return `${block}--${dashify(key)}-${dashify(val[key])}`
       }
     })
+  }
+
+  if(is(val, 'string')) {
+    return val.length === 0 ? '-1' : val
   }
 
   return val
