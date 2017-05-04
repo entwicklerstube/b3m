@@ -31,17 +31,21 @@ cn('big', 'blue') // button__big button__blue
 cn(['action', 'disabled']) // button--action button--disabled
 cn('element', ['action']) // button__element button--action
 cn(['action'], 'element') // button--action button__element
-cn({is: 'clickable'}) // button--is-clickable
-cn({hidden: true}) // button--hidden
-cn({hasIcon: true}) // button--has-icon
-cn({status: 'hasIcon'}) // button--status-has-icon
-cn({iconType: 'emoji'}) // button--icon-type-emoji
-```
+cn({ is: 'clickable' }) // button--is-clickable
+cn({ hidden: true }) // button--hidden
+cn({ hasIcon: true }) // button--has-icon
+cn({ status: 'hasIcon' }) // button--status-has-icon
+cn({ iconType: 'emoji' }) // button--icon-type-emoji
 
+// If you pass something empty it returns a empty string, e.g.
+cn({})
+cn([])
+cn('')
+```
 
 ## Example
 **React**
-```
+```jsx
 import React from 'react'
 import b3m from 'b3m'
 
