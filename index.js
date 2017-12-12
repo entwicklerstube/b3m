@@ -3,7 +3,10 @@ const is = (val, type) => {
   return !!objectType.slice(8,(objectType.length - 1)).match(new RegExp(type, 'gi'))
 }
 
-const dashify = str => str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+const dashify = (str = '') => {
+  if (typeof str !== 'string') return str
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
 
 const removeNotSupportedTypes = val => is(val, 'array|string|object')
 
