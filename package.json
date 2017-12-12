@@ -1,6 +1,6 @@
 {
   "name": "b3m",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "main": "build/index.js",
   "repository": {
     "type": "git",
@@ -8,7 +8,14 @@
   },
   "author": "michaelzoidl <github@michaelzoidl.com>",
   "description": "Easy af BEM formatter which uses the two-dashes-style",
-  "keywords": ["bem", "classname", "classname formatter", "two-dashes-style", "b3m", "BEM formatter"],
+  "keywords": [
+    "bem",
+    "classname",
+    "classname formatter",
+    "two-dashes-style",
+    "b3m",
+    "BEM formatter"
+  ],
   "homepage": "https://github.com/entwicklerstube/b3m",
   "license": "MIT",
   "files": [
