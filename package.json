@@ -1,6 +1,6 @@
 {
   "name": "b3m",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "main": "build/index.js",
   "repository": {
     "type": "git",
