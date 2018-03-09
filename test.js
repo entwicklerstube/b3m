@@ -80,3 +80,8 @@ test('Handles numbers in classnames', t => {
   t.is(cn('opacity-80'), 'button__opacity-80')
   t.is(cn('opacity-100'), 'button__opacity-100')
 })
+
+test('Ignore function when passed', t => {
+  const cn = b3m('button')
+  t.is(cn(() => 'foobar'), 'button')
+})

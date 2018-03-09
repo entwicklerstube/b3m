@@ -1,8 +1,12 @@
 const wildcard = '9007199254740991' // this will be injected as placeholder while calculating, before returning the classname we will remove those numbers
 
 const is = (val, type) => {
-  const objectType = Object.prototype.toString.call(val)
-  return !!objectType.slice(8,(objectType.length - 1)).match(new RegExp(type, 'gi'))
+  if (typeof val === 'function' && type === 'function') {
+    return true
+  } else {
+    const objectType = Object.prototype.toString.call(val)
+    return !!objectType.slice(8,(objectType.length - 1)).match(new RegExp(type, 'gi'))  
+  }
 }
 
 const dashify = (str = '') => {
@@ -10,9 +14,17 @@ const dashify = (str = '') => {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-const removeNotSupportedTypes = val => is(val, 'array|string|object')
+const removeNotSupportedTypes = val => {
+  return is(val, 'array|string|object')
+}
 
-const handleBlocks = (block, val) => is(val, 'string') && val.length > 0 ? `${block}__${val}` : val
+const handleBlocks = (block, val) => {
+  if (is(val, 'string') && val.length > 0) {
+    return `${block}__${val}`
+  } else {
+    return val
+  }
+}
 
 const handleModifiers = (block, val) => {
   if(is(val, 'array')) {
